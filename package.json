@@ -7,4 +7,9 @@
  "method-override": "^2.1.2",
  "body-parser": "^1.5.1"
  }
+
+"engines": {
+    "node": "0.10.x"
+}
+
 }

@@ -41,6 +41,7 @@ tvshows.route('/tvshows/:id')
 app.use('/api', tvshows);
 
 // Start server
+app.set('port', (process.env.PORT || 5000))
 app.listen(3000, function() {
   console.log("Node server running on http://localhost:3000");
 });
