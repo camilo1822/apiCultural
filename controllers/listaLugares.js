@@ -1,6 +1,6 @@
 //File: controllers/tvshows.js
 var mongoose = require('mongoose');
-var TVShow  = mongoose.model('Lugares');
+var Lugares  = mongoose.model('Lugares');
 
 //GET - Return all tvshows in the DB
 exports.findAllLugares = function(req, res) {
@@ -27,7 +27,7 @@ exports.addLugar = function(req, res) {
 	console.log('POST');
 	console.log(req.body);
 
-	var tvshow = new TVShow({
+	var lugares = new Lugares({
 		title:    req.body.title,
 		image: 	  req.body.image,
 		description:  req.body.description,
@@ -38,8 +38,8 @@ exports.addLugar = function(req, res) {
 		tipo: req.body.tipo
 	});
 
-	tvshow.save(function(err, tvshow) {
+	lugares.save(function(err, lugares) {
 		if(err) return res.send(500, err.message);
-    res.status(200).jsonp(tvshow);
+    res.status(200).jsonp(lugares);
 	});
 };

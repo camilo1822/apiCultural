@@ -17,7 +17,7 @@ app.use(methodOverride());
 
 // Import Models and controllers
 var models     = require('./models/lugares')(app, mongoose);
-var TVShowCtrl = require('./controllers/listaLugares');
+var LugaresCtrl = require('./controllers/listaLugares');
 
 // Example Route
 var router = express.Router();
@@ -27,18 +27,18 @@ router.get('/', function(req, res) {
 app.use(router);
 
 // API routes
-var tvshows = express.Router();
+var listaLugares = express.Router();
 
-tvshows.route('/listaLugares')
-  .get(TVShowCtrl.findAllTVShows)
-  .post(TVShowCtrl.addTVShow);
+listaLugares.route('/listaLugares')
+  .get(LugaresCtrl.findAllLugares)
+  .post(LugaresCtrl.addLugar);
 
-tvshows.route('/listaLugares/:id')
-  .get(TVShowCtrl.findById)
-  .put(TVShowCtrl.updateTVShow)
-  .delete(TVShowCtrl.deleteTVShow);
+listaLugares.route('/listaLugares/:id')
+  .get(LugaresCtrl.findById)
+  //.put(LugaresCtrl.updateTVShow)
+  //.delete(LugaresCtrl.deleteTVShow);
 
-app.use('/api', listaLugares);
+app.use(listaLugares);
 
 // Start server
 //app.set('port', (process.env.PORT || 5000))

@@ -4,8 +4,8 @@ exports = module.exports = function(app, mongoose) {
     title:    { type: String },
     image:     { type: String },
 	  description: {type: String},
-	  latitud: {type: double},
-	  longitud: {type: double},
+	  latitud: {type: Number},
+	  longitud: {type: Number},
 	  qr: {type: String},
 	  direccion: {type: String},
     tipo:    {
