@@ -42,6 +42,11 @@ app.use(listaLugares);
 
 // Start server
 app.set('port', (process.env.PORT || 8080))
+app.get('/', function(req, res){
+  res.json({ mensaje: 'Un ejemplo de nodejs, express y Heroku'});
+});
+
+app.listen(app.get('port'));
 /*app.listen(3000, function() {
   console.log("Node server running on http://localhost:3000");
 });*/
