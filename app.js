@@ -46,7 +46,8 @@ app.use(listaLugares);
   console.log("Node server running on http://localhost:3000");
 });*/
 
-var server = app.listen(process.env.PORT || 8080, function () {
+//var server = app.listen(process.env.PORT || 8080, function () {
+var server = app.listen(process.env.PORT || 5000, function () {
   var port = server.address().port;
   console.log("App now running on port", port);
 });
