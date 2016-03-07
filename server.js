@@ -48,7 +48,7 @@ mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
-  app.listen(3000, function() {
+  app.listen(80, function() {
     console.log("Node server running on http://localhost:3000");
   });
 });
