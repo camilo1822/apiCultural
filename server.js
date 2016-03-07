@@ -5,7 +5,10 @@ var express         = require("express"),
     mongoose        = require('mongoose');
 
 // Connection to DB
-mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
+//https://git.heroku.com/pure-ravine-19825.git
+
+//mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
+mongoose.connect('https://git.heroku.com/pure-ravine-19825.git/listaLugares', function(err, res) {
   if(err) throw err;
   console.log('Connected to Database');
 });
