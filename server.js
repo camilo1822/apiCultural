@@ -8,10 +8,10 @@ var express         = require("express"),
 //https://git.heroku.com/pure-ravine-19825.git
 
 //mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
-mongoose.connect('https://git.heroku.com/pure-ravine-19825.git/listaLugares', function(err, res) {
+/*mongoose.connect('https://git.heroku.com/pure-ravine-19825.git/listaLugares', function(err, res) {
   if(err) throw err;
   console.log('Connected to Database');
-});
+});*/
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,8 +43,18 @@ listaLugares.route('/listaLugares/:id')
 
 app.use(listaLugares);
 
+
+mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {  
+  if(err) {
+    console.log('ERROR: connecting to Database. ' + err);
+  }
+  app.listen(3000, function() {
+    console.log("Node server running on http://localhost:3000");
+  });
+});
+
 // Start server
-app.set('port', (process.env.PORT || 3000))
+/*app.set('port', (process.env.PORT || 3000))
 app.get('/', function(req, res){
   res.json({ mensaje: 'Un ejemplo de nodejs, express y Heroku'});
 });
