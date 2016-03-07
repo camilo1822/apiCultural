@@ -41,7 +41,7 @@ listaLugares.route('/listaLugares/:id')
 app.use(listaLugares);
 
 // Start server
-app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 8080))
 app.get('/', function(req, res){
   res.json({ mensaje: 'Un ejemplo de nodejs, express y Heroku'});
 });
