@@ -55,6 +55,9 @@ mongoose.connect('mongodb://heroku_2v8qghk7:@ds011379.mlab.com:11379/heroku_2v8q
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
+  if(res) {
+    console.log('me conete yiju ' + err);
+  }
   app.listen(27017, function() {
     console.log("Node server running on http://localhost:8080");
   });
