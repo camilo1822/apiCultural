@@ -43,33 +43,15 @@ listaLugares.route('/listaLugares/:id')
 
 app.use(listaLugares);
 
-mongodb.MongoClient.connect(process.env.MONGOLAB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
 
-
-  db = database;
-  console.log("Database connection ready");
-
-  // Initialize the app.
-  var server = app.listen(process.env.PORT || 27017, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
-});
-
-//ultimo que comente
-/*
-mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {  
+mongoose.connect('mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7', function(err, res) {  
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
   app.listen(5000, function() {
     console.log("Node server running on http://localhost:3000");
   });
-});*/
+});
 
 // Start server
 /*app.set('port', (process.env.PORT || 3000))
