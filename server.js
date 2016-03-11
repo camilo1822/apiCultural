@@ -51,14 +51,14 @@ var db;
 
 //mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7
 //mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
-mongoose.connect('mongodb://lugares:apicultural@ds011379.mlab.com:27017/heroku_2v8qghk7', function(err, res) {  
+mongoose.connect('mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7', function(err, res) {  
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
   if(res) {
     console.log('me conecte yiju ' + err);
   }
-  app.listen(27017, function() {
+  app.listen(11379, function() {
     console.log("Node server running on http://localhost:8080");
   });
 });
