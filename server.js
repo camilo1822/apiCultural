@@ -45,29 +45,20 @@ app.use(listaLugares);
 
 var db;
 
-// Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGOLAB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
 
-  // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready");
 
 
 
 //mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7
 //mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
-/*mongoose.connect('mongodb://heroku_2v8qghk7.lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7', function(err, res) {  
+mongoose.connect(process.env.MONGOLAB_URI, function(err, res) {  
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
   app.listen(27017, function() {
     console.log("Node server running on http://localhost:8080");
   });
-});*/
+});
 
 // Start server
 /*app.set('port', (process.env.PORT || 3000))
