@@ -47,10 +47,10 @@ app.use(listaLugares);
 //mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
 mongoose.connect('mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7', function(err, res) {  
   if(err) {
-    console.log('ERROR: connecting to Database. ' + err);
+    console.log('ERROR: connecting to Database. aqui' + err);
   }
   app.listen(27017, function() {
-    console.log("Node server running on http://localhost:3000");
+    console.log("Node server running on http://localhost:8080");
   });
 });
 
