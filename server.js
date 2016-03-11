@@ -51,7 +51,7 @@ var db;
 
 //mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7
 //mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
-mongoose.connect('mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7.lugares', function(err, res) {  
+mongoose.connect('mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7', function(err, res) {  
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
