@@ -2,17 +2,26 @@
 var express = require('express')
 var app = express()
 var mongoose = require('mongoose')
+var bodyParser      = require("body-parser")
+var methodOverride  = require("method-override")
 
-app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+// Middlewares
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(methodOverride());
 
-app.get('/', function(request, response) {
-  response.send('Hello World!')
-})
+//importo controlador
+var LugaresCtrl = require('./controllers/listaLugares');
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-})
+
+app.use(router);
+
+// API routes
+var listaLugares = express.Router();
+
+listaLugares.route('/listaLugares')
+  .get(LugaresCtrl.findAllLugares)
+  .post(LugaresCtrl.addLugar);
 
 var uri = 'mongodb://lugares:apicultural@ds011379.mlab.com:11379/lugares';
 db = mongoose.createConnection(uri);
@@ -32,9 +41,15 @@ Schema = mongoose.Schema;
     }
   });
   var LugaresModel = mongoose.model('Lugares', LugaresSchema);
-  var test = new LugaresModel({name: "test", password: "test"})
+  //var test = new LugaresModel({name: "test", password: "test"})
 
-  console.log("me: " + test)
+
+
+
+
+
+
+  /*console.log("me: " + test)
 
   test.save(function (err, test) {
     console.log("saved?")
@@ -44,4 +59,16 @@ Schema = mongoose.Schema;
     }
     console.log("saved!")
   });
-  console.log("after save");
+  console.log("after save");*/
+
+
+app.set('port', (process.env.PORT || 5000))
+app.use(express.static(__dirname + '/public'))
+
+app.get('/', function(request, response) {
+  response.send('Servidor Proyecto Integrador I!')
+})
+
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
