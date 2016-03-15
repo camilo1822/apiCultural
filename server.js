@@ -67,7 +67,7 @@ var db;
   app.listen(27017, function() {
     console.log("Node server running on http://localhost:8080");
   });
-});
+//});
 
 
 
