@@ -64,7 +64,7 @@ var db;
     console.log('ERROR: connecting to Database. ' + err);
   }*/
  
-  app.listen(27017, function() {
+  app.listen(5000, function() {
     console.log("Node server running on http://localhost:8080");
   });
 //});
