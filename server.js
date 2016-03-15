@@ -15,8 +15,6 @@ var models     = require('./models/lugares')(app, mongoose);
 var LugaresCtrl = require('./controllers/listaLugares');
 
 
-//app.use(router);
-
 // API routes
 var listaLugares = express.Router();
 
