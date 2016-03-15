@@ -21,8 +21,10 @@ var listaLugares = express.Router();
 listaLugares.route('/listaLugares')
   .get(LugaresCtrl.findAllLugares)
   .post(LugaresCtrl.addLugar);
+listaLugares.route('/listaLugares/:id')
+  .get(LugaresCtrl.findById)
 
-  app.use(listaLugares);
+app.use(listaLugares);
 
 var uri = 'mongodb://lugares:apicultural@ds011379.mlab.com:11379/lugares';
 db = mongoose.createConnection(uri);

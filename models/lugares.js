@@ -15,6 +15,6 @@ exports = module.exports = function(app, mongoose) {
    
   });
 
-  mongoose.model('Lugares', lugaresSchema);
+  mongoose.model('lugares', lugaresSchema);
 
 };
