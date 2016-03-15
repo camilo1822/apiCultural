@@ -15,6 +15,10 @@ var models     = require('./models/lugares')(app, mongoose);
 var LugaresCtrl = require('./controllers/listaLugares');
 
 
+var uri = 'mongodb://lugares:apicultural@ds011379.mlab.com:11379/lugares';
+db = mongoose.createConnection(uri);
+
+
 // API routes
 var listaLugares = express.Router();
 
@@ -25,11 +29,6 @@ listaLugares.route('/listaLugares/:id')
   .get(LugaresCtrl.findById)
 
 app.use(listaLugares);
-
-var uri = 'mongodb://lugares:apicultural@ds011379.mlab.com:11379/lugares';
-db = mongoose.createConnection(uri);
-
-
 
 
 
