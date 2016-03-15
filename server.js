@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 //importo controlador
+var models     = require('./models/lugares')(app, mongoose);
 var LugaresCtrl = require('./controllers/listaLugares');
 
 
@@ -25,23 +26,6 @@ listaLugares.route('/listaLugares')
 
 var uri = 'mongodb://lugares:apicultural@ds011379.mlab.com:11379/lugares';
 db = mongoose.createConnection(uri);
-Schema = mongoose.Schema;
-
-  var LugaresSchema = new Schema({
-    title:    { type: String },
-    image:     { type: String },
-    description: {type: String},
-    latitud: {type: Number},
-    longitud: {type: Number},
-    qr: {type: String},
-    direccion: {type: String},
-    tipo:    {
-      type: String,
-      enum: ['estatua', 'parque', 'mural', 'edificacion']
-    }
-  });
-  var LugaresModel = mongoose.model('Lugares', LugaresSchema);
-  //var test = new LugaresModel({name: "test", password: "test"})
 
 
 
