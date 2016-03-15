@@ -49,7 +49,7 @@ mongoose.connect(uristring, function (err, res) {
 // port 5000.
 var port = process.env.PORT || 5000;
 
-app.use('/api/v1', router);
+//app.use('/api/v1', router);
 
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
