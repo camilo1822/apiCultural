@@ -1,88 +1,47 @@
-var express         = require("express"),
-    app             = express(),
-    bodyParser      = require("body-parser"),
-    methodOverride  = require("method-override"),
-    mongoose        = require('mongoose');
 
-// Connection to DB
-//https://git.heroku.com/pure-ravine-19825.git
+var express = require('express')
+var app = express()
+var mongoose = require('mongoose')
 
-//mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
-/*mongoose.connect('https://git.heroku.com/pure-ravine-19825.git/listaLugares', function(err, res) {
-  if(err) throw err;
-  console.log('Connected to Database');
-});*/
+app.set('port', (process.env.PORT || 5000))
+app.use(express.static(__dirname + '/public'))
 
-// Middlewares
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(methodOverride());
+app.get('/', function(request, response) {
+  response.send('Hello World!')
+})
 
-// Import Models and controllers
-var models     = require('./models/lugares')(app, mongoose);
-var LugaresCtrl = require('./controllers/listaLugares');
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
 
-// Example Route
-var router = express.Router();
-router.get('/', function(req, res) {
-  res.send("Hello world!");
-});
-app.use(router);
+var uri = 'mongodb://lugares:apicultural@ds011379.mlab.com:11379/lugares';
+db = mongoose.createConnection(uri);
+Schema = mongoose.Schema;
 
-// API routes
-var listaLugares = express.Router();
-
-listaLugares.route('/listaLugares')
-  .get(LugaresCtrl.findAllLugares)
-  .post(LugaresCtrl.addLugar);
-
-listaLugares.route('/listaLugares/:id')
-  .get(LugaresCtrl.findById)
-  //.put(LugaresCtrl.updateTVShow)
-  //.delete(LugaresCtrl.deleteTVShow);
-
-app.use(listaLugares);
-
-
-/*var uristring = 
-  process.env.MONGOLAB_URI || 
-  process.env.MONGOHQ_UR;
-var db;
-*/
-
-//mongodb://lugares:apicultural@ds011379.mlab.com:11379/heroku_2v8qghk7
-//mongoose.connect('mongodb://localhost/listaLugares', function(err, res) {
-
-
-
-
-mongoose.connect('mongodb://lugares:apicultural@ds011379.mlab.com:11379/lugares', function(err, res) {  
-  if(err) {
-    console.log('ERROR: connecting to Database. ' + err);
-  }
- 
-  app.listen(5000, function() {
-    console.log("Node server running on http://localhost:8080");
+  var LugaresSchema = new Schema({
+    title:    { type: String },
+    image:     { type: String },
+    description: {type: String},
+    latitud: {type: Number},
+    longitud: {type: Number},
+    qr: {type: String},
+    direccion: {type: String},
+    tipo:    {
+      type: String,
+      enum: ['estatua', 'parque', 'mural', 'edificacion']
+    }
   });
-});
+  var LugaresModel = mongoose.model('Lugares', LugaresSchema);
+  var test = new LugaresModel({name: "test", password: "test"})
 
+  console.log("me: " + test)
 
-
-
-
-// Start server
-/*app.set('port', (process.env.PORT || 3000))
-app.get('/', function(req, res){
-  res.json({ mensaje: 'Un ejemplo de nodejs, express y Heroku'});
-});
-
-app.listen(app.get('port'));
-/*app.listen(3000, function() {
-  console.log("Node server running on http://localhost:3000");
-});*/
-
-//var server = app.listen(process.env.PORT || 8080, function () {
-/*var server = app.listen(process.env.PORT || 5000, function () {
-  var port = server.address().port;
-  console.log("App now running on port", port);
-});*/
+  test.save(function (err, test) {
+    console.log("saved?")
+    if (err) {
+      console.log("error");
+      return console.error(err);
+    }
+    console.log("saved!")
+  });
+  console.log("after save");
