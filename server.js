@@ -15,7 +15,7 @@ var models     = require('./models/lugares')(app, mongoose);
 var LugaresCtrl = require('./controllers/listaLugares');
 
 
-var uri = 'mongodb://heroku_2v8qghk7:heroku_2v8qghk7@ds011379.mlab.com:11379/heroku_2v8qghk7';
+var uri = 'mongodb://10.239.188.122:42158@ds011379.mlab.com:11379/heroku_2v8qghk7';
 db = mongoose.createConnection(uri);
 
 
