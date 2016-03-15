@@ -7,7 +7,7 @@ exports.findAllLugares = function(req, res) {
 	Lugares.find(function(err, listaLugares) {
     if(err) res.send(500, err.message);
 
-    console.log('GET /listaLugares')
+    console.log('GET /listaDeLugares')
 		res.status(200).jsonp(listaLugares);
 	});
 };
