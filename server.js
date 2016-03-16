@@ -9,8 +9,6 @@ var methodOverride  = require("method-override")
 var CONTACTS_COLLECTION = "contacts";
 
 
-// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
-var db;
 
 
 // Middlewares
@@ -43,7 +41,12 @@ process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
 'mongodb://localhost/listaLugares';
 
-mongoose.connect(uristring, function (err, database) {
+
+// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
+var db;
+
+//mongoose.connect(uristring, function (err, database) {
+mongodb.MongoClient.connect(uristring, function (err, database) {
   if (err) {
   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
