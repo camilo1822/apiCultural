@@ -52,7 +52,9 @@ exports.addLugar = function(req, res) {
 	});
 
 	//lugaresJson.save(function(err, lugares) {
-		if(err) return res.send(500, err.message);
+		//if(err) return res.send(500, err.message);
+		//quitar ahora
+	console.log('GET api/listaDeLugares');
     res.status(200).jsonp(lugaresJson);
-	});
+	//});
 };
