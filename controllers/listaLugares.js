@@ -8,7 +8,7 @@ exports.findAllLugares = function(req, res) {
     if(err) res.send(500, err.message);
 
     console.log('GET /listaDeLugares')
-		res.status(200).jsonp(listaLugares);
+		res.status(200).jsonp(listaDeLugares);
 	});
 };
 
