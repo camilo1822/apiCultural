@@ -6,14 +6,14 @@ var Lugares  = mongoose.model('lugares');
 exports.findAllLugares = function(req, res) {
 	Lugares.find(function(err, listaLugares) {
     if(err) res.send(500, err.message);
-    if(Lugares === null){
+    if(listaLugares === null){
       console.log('Customer not found');
       res.send('no hay datos');
       res.status(404).jsonp({error: 'Customer not found'});
     }
 
 
-    if(Lugares != null){
+    if(listaLugares != null){
       console.log('Customer not found');
       res.send('si hay datos');
       res.status(404).jsonp({error: 'Customer not found'});
