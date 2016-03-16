@@ -31,7 +31,7 @@ listaLugares.route('/listaDeLugares/:id')
 app.use('api',listaLugares);
 
 
-var PUser = mongoose.model('lugares', lugaresSchema);
+var PUser = mongoose.models('lugares', lugaresSchema);
 
 var nuevoLugar = new PUser ({
   "title": "LOST",
