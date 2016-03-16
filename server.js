@@ -47,13 +47,21 @@ process.env.MONGOHQ_URL ||
 var db;
 
 //mongoose.connect(uristring, function (err, database) {
-mongodb.MongoClient.connect(uristring, function (err, database) {
+/*mongodb.MongoClient.connect(uristring, function (err, database) {
   if (err) {
   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
   console.log ('Succeeded connected to: ' + uristring);
   }
-});
+});*/
+
+
+
+mongodb.MongoClient.connect(process.env.MONGOLAB_URI, function (err, database) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
 
 
 db = database;
