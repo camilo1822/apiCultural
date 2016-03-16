@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 var bodyParser      = require("body-parser")
 var methodOverride  = require("method-override")
 
-app.use(express.static(__dirname + "/public"));
+var app = connect().use(connect.static(__dirname + '/public'));
 
 
 // Middlewares
