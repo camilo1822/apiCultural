@@ -21,7 +21,7 @@ exports.findAllLugares = function(req, res) {
 
     res.send('estoy entrando');
     console.log('GET api/listaDeLugares')
-		res.status(200).jsonp(lugares);
+		res.status(200).jsonp(listaLugares);
 	});
 };
 
