@@ -8,6 +8,7 @@ exports.findAllLugares = function(req, res) {
     if(err) res.send(500, err.message);
     if(Lugares === null){
       console.log('Customer not found');
+      res.send('no hay datos')
       res.status(404).jsonp({error: 'Customer not found'});
     }
 
