@@ -33,7 +33,7 @@ app.use('api',listaLugares);
 
 var uristring =
 process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL; ||
+process.env.MONGOHQ_URL ||
 'mongodb://localhost/listaLugares';
 
 
