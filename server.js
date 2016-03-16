@@ -44,6 +44,9 @@ var nuevoLugar = new PUser ({
   "tipo": "estatua"
 });
 
+nuevoLugar.save(function (err) {if (err) console.log ('Error on save!')});
+
+
 
 var uristring =
 process.env.MONGOLAB_URI ||
