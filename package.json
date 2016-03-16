@@ -6,7 +6,7 @@
  "express": "^4.7.1",
  "method-override": "^2.1.2",
  "body-parser": "^1.5.1",
-  "mongodb": "^2.1.6"
+  "mongodb": "3.2.4"
  }
 
 
