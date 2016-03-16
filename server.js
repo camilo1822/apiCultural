@@ -22,10 +22,10 @@ db = mongoose.createConnection(uri);*/
 // API routes
 var listaDeLugares = express.Router();
 
-listaLugares.route('/listaDeLugares')
+listaDeLugares.route('/listaDeLugares')
   .get(LugaresCtrl.findAllLugares)
   .post(LugaresCtrl.addLugar);
-listaLugares.route('/listaDeLugares/:id')
+listaDeLugares.route('/listaDeLugares/:id')
   .get(LugaresCtrl.findById)
 
 app.use(listaDeLugares);
