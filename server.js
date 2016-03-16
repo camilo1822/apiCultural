@@ -4,11 +4,6 @@ var app = express()
 var mongoose = require('mongoose')
 var bodyParser      = require("body-parser")
 var methodOverride  = require("method-override")
-var mongodb = require("mongodb")
-
-
-var CONTACTS_COLLECTION = "contacts";
-
 
 
 
@@ -43,11 +38,8 @@ process.env.MONGOHQ_URL ||
 'mongodb://localhost/listaLugares';
 
 
-// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
-var db;
 
-//mongoose.connect(uristring, function (err, database) {
-/*mongodb.MongoClient.connect(uristring, function (err, database) {
+mongoose.connect(uristring, function (err, database) {
   if (err) {
   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
@@ -56,20 +48,6 @@ var db;
 });*/
 
 
-
-mongodb.MongoClient.connect(process.env.MONGOLAB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
-
-  // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready");
-
-  // Initialize the app.
-  
-});
 
 
 
