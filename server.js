@@ -31,7 +31,7 @@ listaLugares.route('/listaDeLugares/:id')
 
 app.use('api',listaLugares);
 
-var uristring = "mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7";
+var uristring = "mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/lugaresCult";
 /*process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
 'mongodb://localhost/listaLugares';*/
