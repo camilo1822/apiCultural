@@ -31,6 +31,19 @@ listaLugares.route('/listaDeLugares/:id')
 app.use('api',listaLugares);
 
 
+var PUser = mongoose.model('lugares', lugaresSchema);
+
+var nuevoLugar = new PUser ({
+  "title": "LOST",
+  "image": "2004",
+  "description": "USA",
+  "latitud": 10.5,
+  "longitud": 6,
+  "qr": "Sci-Fi",
+  "direccion": "la calle",
+  "tipo": "estatua"
+});
+
 
 var uristring =
 process.env.MONGOLAB_URI ||
