@@ -8,7 +8,7 @@ exports.findAllLugares = function(req, res) {
     if(err) res.send(500, err.message);
 
     console.log('GET api/listaDeLugares')
-		res.status(200).jsonp(listaLugares);
+		res.status(200).jsonp(lugares);
 	});
 };
 
@@ -40,6 +40,6 @@ exports.addLugar = function(req, res) {
 
 	lugaresJson.save(function(err, lugares) {
 		if(err) return res.send(500, err.message);
-    res.status(200).jsonp(lugaresJson);
+    res.status(200).jsonp(lugares);
 	});
 };
