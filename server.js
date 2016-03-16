@@ -5,6 +5,14 @@ var mongoose = require('mongoose')
 var bodyParser      = require("body-parser")
 var methodOverride  = require("method-override")
 
+
+var CONTACTS_COLLECTION = "contacts";
+
+
+// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
+var db;
+
+
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -30,23 +38,6 @@ listaLugares.route('/listaDeLugares/:id')
 
 app.use('api',listaLugares);
 
-
-
-
-app.put("/contacts/:id", function(req, res) {
-  var updateDoc = req.body;
-
-  db.collection(CONTACTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
-    if (err) {
-      handleError(err.message, "Failed to update contact");
-    } else {
-      res.status(204).end();
-    }
-  });
-});
-
-
-
 var uristring =
 process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
@@ -59,6 +50,29 @@ mongoose.connect(uristring, function (err, res) {
   console.log ('Succeeded connected to: ' + uristring);
   }
 });
+
+
+db = database;
+  console.log("Database connection ready");
+
+
+
+
+app.post("/contacts", function(req, res) {
+  var newContact = req.body;
+  newContact.createDate = new Date();
+
+  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
+    if (err) {
+      handleError(err.message, "Failed to create new contact.");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
+
+
+
 
 // The http server will listen to an appropriate port, or default to
 // port 5000.
