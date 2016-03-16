@@ -1,6 +1,6 @@
 //File: controllers/tvshows.js
 var mongoose = require('mongoose');
-var Lugares  = mongoose.model('lugares');
+var Lugares  = mongoose.model('Lugares');
 
 //GET - Return all tvshows in the DB
 exports.findAllLugares = function(req, res) {
@@ -8,7 +8,7 @@ exports.findAllLugares = function(req, res) {
     if(err) res.send(500, err.message);
 
     console.log('GET /listaDeLugares')
-		res.status(200).jsonp(listaDeLugares);
+		res.status(200).jsonp(listaLugares);
 	});
 };
 
@@ -27,7 +27,7 @@ exports.addLugar = function(req, res) {
 	console.log('POST');
 	console.log(req.body);
 
-	var lugares = new Lugares({
+	var lugaresJson = new Lugares({
 		title:    req.body.title,
 		image: 	  req.body.image,
 		description:  req.body.description,
@@ -40,6 +40,6 @@ exports.addLugar = function(req, res) {
 
 	lugares.save(function(err, lugares) {
 		if(err) return res.send(500, err.message);
-    res.status(200).jsonp(lugares);
+    res.status(200).jsonp(lugaresJson);
 	});
 };
