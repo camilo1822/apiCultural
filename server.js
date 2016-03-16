@@ -31,20 +31,19 @@ listaLugares.route('/listaDeLugares/:id')
 app.use('api',listaLugares);
 
 
-var PUser = mongoose.models('lugares', lugaresSchema);
 
-var nuevoLugar = new PUser ({
-  "title": "LOST",
-  "image": "2004",
-  "description": "USA",
-  "latitud": 10.5,
-  "longitud": 6,
-  "qr": "Sci-Fi",
-  "direccion": "la calle",
-  "tipo": "estatua"
+
+app.put("/contacts/:id", function(req, res) {
+  var updateDoc = req.body;
+
+  db.collection(CONTACTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    if (err) {
+      handleError(err.message, "Failed to update contact");
+    } else {
+      res.status(204).end();
+    }
+  });
 });
-
-nuevoLugar.save(function (err) {if (err) console.log ('Error on save!')});
 
 
 
