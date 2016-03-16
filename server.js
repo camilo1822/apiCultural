@@ -43,7 +43,7 @@ process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
 'mongodb://localhost/listaLugares';
 
-mongoose.connect(uristring, function (err, res) {
+mongoose.connect(uristring, function (err, database) {
   if (err) {
   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
