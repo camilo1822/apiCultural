@@ -28,7 +28,7 @@ listaLugares.route('/listaDeLugares')
 listaLugares.route('/listaDeLugares/:id')
   .get(LugaresCtrl.findById)
 
-app.use(listaLugares);
+app.use('api',listaLugares);
 
 
 
