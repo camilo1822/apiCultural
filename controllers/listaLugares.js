@@ -19,6 +19,7 @@ exports.findAllLugares = function(req, res) {
       res.status(404).jsonp({error: 'Customer not found'});
     }
 
+    res.send('estoy entrando');
     console.log('GET api/listaDeLugares')
 		res.status(200).jsonp(lugares);
 	});
