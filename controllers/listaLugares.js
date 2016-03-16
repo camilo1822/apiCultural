@@ -1,6 +1,6 @@
 //File: controllers/tvshows.js
 var mongoose = require('mongoose');
-var Lugares  = mongoose.model('Lugares');
+var Lugares  = mongoose.model('lugares');
 
 //GET - Return all tvshows in the DB
 exports.findAllLugares = function(req, res) {
