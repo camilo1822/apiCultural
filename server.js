@@ -33,8 +33,8 @@ app.use('api',listaLugares);
 
 var uristring =
 process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL ||
-'mongodb://localhost/listaLugares';
+process.env.MONGOHQ_URL;/* ||
+'mongodb://localhost/listaLugares';*/
 
 
 
@@ -51,7 +51,7 @@ mongoose.connect(uristring, function (err, res) {
 
 
 
-app.post("/contacts", function(req, res) {
+/*app.post("/contacts", function(req, res) {
   var newContact = req.body;
   newContact.createDate = new Date();
 
@@ -62,7 +62,7 @@ app.post("/contacts", function(req, res) {
       res.status(201).json(doc.ops[0]);
     }
   });
-});
+});*/
 
 
 
