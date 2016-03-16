@@ -68,10 +68,7 @@ mongodb.MongoClient.connect(process.env.MONGOLAB_URI, function (err, database) {
   console.log("Database connection ready");
 
   // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
+  
 });
 
 
@@ -95,7 +92,7 @@ app.post("/contacts", function(req, res) {
 
 // The http server will listen to an appropriate port, or default to
 // port 5000.
-/*var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5000;
 
 //app.use('/api/v1', router);
 app.get('/', function(request, response) {
@@ -105,7 +102,7 @@ app.get('/', function(request, response) {
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
 });
-*/
+
 
 
   /*console.log("me: " + test)
