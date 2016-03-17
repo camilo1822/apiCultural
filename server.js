@@ -1,9 +1,9 @@
 
-var express = require('express')
-var app = express()
-var mongoose = require('mongoose')
-var bodyParser      = require("body-parser")
-var methodOverride  = require("method-override")
+var express = require('express');
+var app = express();
+var mongoose = require('mongoose');
+var bodyParser      = require("body-parser");
+var methodOverride  = require("method-override");
 
 
 // Middlewares
@@ -36,33 +36,16 @@ process.env.MONGOHQ_URL ||
 'mongodb://localhost/listaLugares';
 
 
+//mongodb://<dbuser>:<dbpassword>@ds011379.mlab.com:11379/heroku_2v8qghk7
 
-mongoose.connect(uristring, function (err, res) {
+mongoose.connect('mongodb://lugarCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7
+', function (err, res) {
   if (err) {
   console.log ('ERROR conectando a: ' + uristring + '. ' + err);
   } else {
   console.log ('Succeeded connected to: ' + uristring);
   }
 });
-
-
-
-
-
-
-/*app.post("/contacts", function(req, res) {
-  var newContact = req.body;
-  newContact.createDate = new Date();
-
-  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
-    if (err) {
-      handleError(err.message, "Failed to create new contact.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
-});*/
-
 
 
 
@@ -76,7 +59,7 @@ app.get('/', function(request, response) {
 });
 
 app.listen(port, function() {
-  console.log('Node Server Running in the port:'+port);
+  console.log('Node Server Running in the port:'+port)
 });
 
 
