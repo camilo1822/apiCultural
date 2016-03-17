@@ -30,12 +30,12 @@ listaLugares.route('/listaDeLugares/:id')
   .get(LugaresCtrl.findById);
 
 
-  /*var uristring =
+var uristring='mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7';
+
+/*var uristring =
 process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
 'mongodb://localhost:27017/listaLugares';*/
-
-var uristring='mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7';
 
 mongoose.connect(uristring, function (err, res) {
   if (err) {
