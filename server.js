@@ -30,63 +30,25 @@ listaLugares.route('/listaDeLugares/:id')
   .get(LugaresCtrl.findById);
 
 
-var uristring = process.env.MONGOLAB_URI ||
+  var uristring =
+process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
-'mongodb://localhost/listaLugares';
-
-
-//mongodb://<dbuser>:<dbpassword>@ds011379.mlab.com:11379/heroku_2v8qghk7
+'mongodb://localhost/spinnerbank_development';
 
 mongoose.connect(uristring, function (err, res) {
   if (err) {
-  console.log ('ERROR conectando a: ' + uristring + '. ' + err);
+  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
   console.log ('Succeeded connected to: ' + uristring);
   }
 });
 
-
-
 // The http server will listen to an appropriate port, or default to
 // port 5000.
 var port = process.env.PORT || 5000;
 
-//app.use('/api/v1', router);
-app.get('/', function(request, response) {
-  response.send('Servidor Proyecto Integrador I!')
-});
-
-
-app.use('api',listaLugares);
+app.use('/api/v1', router);
 
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
 });
-
-
-
-  /*console.log("me: " + test)
-
-  test.save(function (err, test) {
-    console.log("saved?")
-    if (err) {
-      console.log("error");
-      return console.error(err);
-    }
-    console.log("saved!")
-  });
-  console.log("after save");*/
-
-
-/*app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
-
-app.get('/', function(request, response) {
-  response.send('Servidor Proyecto Integrador I!')
-})
-
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-
-
-//web: node server.js*/
