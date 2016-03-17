@@ -33,7 +33,7 @@ listaLugares.route('/listaDeLugares/:id')
   var uristring =
 process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
-'mongodb://localhost/spinnerbank_development';
+'mongodb://localhost/listaLugares';
 
 mongoose.connect(uristring, function (err, res) {
   if (err) {
