@@ -27,7 +27,7 @@ listaLugares.route('/listaDeLugares')
   .get(LugaresCtrl.findAllLugares)
   .post(LugaresCtrl.addLugar);
 listaLugares.route('/listaDeLugares/:id')
-  .get(LugaresCtrl.findById)
+  .get(LugaresCtrl.findById);
 
 app.use('api',listaLugares);
 
@@ -73,7 +73,7 @@ var port = process.env.PORT || 5000;
 //app.use('/api/v1', router);
 app.get('/', function(request, response) {
   response.send('Servidor Proyecto Integrador I!')
-})
+});
 
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
