@@ -11,7 +11,7 @@ exports = module.exports = function(app, mongoose) {
     tipo:    {
       type: String,
       enum: ['estatua', 'parque', 'mural', 'edificacion']
-    },
+    }
    
   });
 
