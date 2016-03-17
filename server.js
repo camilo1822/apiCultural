@@ -29,7 +29,6 @@ listaLugares.route('/listaDeLugares')
 listaLugares.route('/listaDeLugares/:id')
   .get(LugaresCtrl.findById);
 
-app.use('api',listaLugares);
 
 var uristring = process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
@@ -38,8 +37,7 @@ process.env.MONGOHQ_URL ||
 
 //mongodb://<dbuser>:<dbpassword>@ds011379.mlab.com:11379/heroku_2v8qghk7
 
-mongoose.connect('mongodb://lugarCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7
-', function (err, res) {
+mongoose.connect(uristring, function (err, res) {
   if (err) {
   console.log ('ERROR conectando a: ' + uristring + '. ' + err);
   } else {
@@ -58,8 +56,11 @@ app.get('/', function(request, response) {
   response.send('Servidor Proyecto Integrador I!')
 });
 
+
+app.use('api',listaLugares);
+
 app.listen(port, function() {
-  console.log('Node Server Running in the port:'+port)
+  console.log('Node Server Running in the port:'+port);
 });
 
 
