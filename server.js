@@ -47,10 +47,23 @@ mongoose.connect(uristring, function (err, res) {
 
 // The http server will listen to an appropriate port, or default to
 // port 5000.
-var port = process.env.PORT || 5000;
+
+
+const http = require('http');
+
+http.createServer( (request, response) => {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8124);
+
+console.log('Server running at http://127.0.0.1:8124/');
+
+
+
+/*var port = process.env.PORT || 5000;
 
 app.use('/api', listaLugares);
 
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
-});
+});*/
