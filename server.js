@@ -47,7 +47,7 @@ mongoose.connect(uristring, function (err, res) {
 
 // The http server will listen to an appropriate port, or default to
 // port 5000.
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8080;
 
 app.use('/api', listaLugares);
 
