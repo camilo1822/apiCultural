@@ -4,6 +4,8 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser      = require("body-parser");
 var methodOverride  = require("method-override");
+/*var restify     =   require('restify');
+var server      =   restify.createServer();*/
 
 
 // Middlewares
@@ -47,8 +49,9 @@ mongoose.connect(uristring, function (err, res) {
 
 // The http server will listen to an appropriate port, or default to
 // port 5000.
+
 // CORS
-server.use(function(req, res, next) {
+app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -56,7 +59,7 @@ server.use(function(req, res, next) {
 });
 
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 5000;
 
 app.use('/api', listaLugares);
 
