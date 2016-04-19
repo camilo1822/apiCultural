@@ -4,8 +4,7 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser      = require("body-parser");
 var methodOverride  = require("method-override");
-/*var restify     =   require('restify');
-var server      =   restify.createServer();*/
+
 
 
 // Middlewares
@@ -18,26 +17,18 @@ var models     = require('./models/lugares')(app, mongoose);
 var LugaresCtrl = require('./controllers/listaLugares');
 
 
-/*var uri = 'mongodb://10.239.188.122:42158@ds011379.mlab.com:11379/heroku_2v8qghk7';
-db = mongoose.createConnection(uri);*/
-
-
 // API routes
 var listaLugares = express.Router();
 
-listaLugares.route('/listaDeLugares')
+listaLugares.route('/Lugares')
   .get(LugaresCtrl.findAllLugares)
   .post(LugaresCtrl.addLugar);
-listaLugares.route('/listaDeLugares/:id')
+listaLugares.route('/Lugares/:id')
   .get(LugaresCtrl.findById);
 
 
 var uristring='mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7';
 
-/*var uristring =
-process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL ||
-'mongodb://localhost:27017/listaLugares';*/
 
 mongoose.connect(uristring, function (err, res) {
   if (err) {
