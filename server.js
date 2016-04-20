@@ -26,6 +26,19 @@ listaLugares.route('/Lugares')
 listaLugares.route('/Lugares/:id')
   .get(LugaresCtrl.findById);
 
+var model     = require('./models/favoritos')(app, mongoose);
+var FavoritosCtrl = require('./controllers/listaFavoritos');
+
+
+// API routes
+var listaFavoritos = express.Router();
+
+listaFavoritos.route('/Favoritos')
+  .get(FavoritosCtrl.findAllFavoritos)
+  .post(FavoritosCtrl.addFavorito);
+
+
+
 
 var uristring='mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7';
 
