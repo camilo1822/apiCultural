@@ -67,6 +67,8 @@ var port = process.env.PORT || 5000;
 
 app.use('/api', listaLugares);
 
+app.use('/api', listaFavoritos);
+
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
 });
