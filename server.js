@@ -51,9 +51,10 @@ mongoose.connect(uristring, function (err, database) {
   } else {
   console.log ('Succeeded connected to: ' + uristring);
   }
+  db = database;
 });
 
-  db = database;
+  
 
 // The http server will listen to an appropriate port, or default to
 // port 5000.
