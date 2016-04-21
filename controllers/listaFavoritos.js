@@ -7,7 +7,7 @@ exports.findAllFavoritos = function(req, res) {
 	Favoritos.find(function(err, listaFavoritos) {
     if(err) res.send(500, err.message);
 
-    console.log('GET api/Lugares')
+    console.log('GET api/Favoritos')
 		res.status(200).jsonp(listaFavoritos);
 	});
 };
@@ -17,7 +17,7 @@ exports.findById = function(req, res) {
 	Favoritos.findById(req.params.id, function(err, favoritos) {
     if(err) return res.send(500, err.message);
 
-    console.log('GET api/favoritos/' + req.params.id);
+    console.log('GET api/Favoritos/' + req.params.id);
 		res.status(200).jsonp(favoritos);
 	});
 };
@@ -33,10 +33,10 @@ exports.addFavorito = function(req, res) {
 		sites: req.body.sites
 	});
 
-	//lugaresJson.save(function(err, lugares) {
-		//if(err) return res.send(500, err.message);
+	lugaresJson.save(function(err, lugares) {
+		if(err) return res.send(500, err.message);
 		//quitar ahora
-	console.log('GET api/Lugares');
+	//console.log('GET api/Favoritos');
     res.status(200).jsonp(favoritosJson);
-	//});
+	});
 };

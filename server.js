@@ -5,7 +5,9 @@ var mongoose = require('mongoose');
 var bodyParser      = require("body-parser");
 var methodOverride  = require("method-override");
 
+var CONTACTS_COLLECTION = "sites";
 
+var db;
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,13 +45,15 @@ listaFavoritos.route('/Favoritos')
 var uristring='mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7';
 
 
-mongoose.connect(uristring, function (err, res) {
+mongoose.connect(uristring, function (err, database) {
   if (err) {
   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
   console.log ('Succeeded connected to: ' + uristring);
   }
 });
+
+  db = database;
 
 // The http server will listen to an appropriate port, or default to
 // port 5000.
@@ -71,4 +75,19 @@ app.use('/api', listaFavoritos);
 
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
+});
+
+
+
+app.post("/sites", function(req, res) {
+  var newSite = req.body;
+  newSite.createDate = new Date();
+
+  db.collection(CONTACTS_COLLECTION).insertOne(newSite, function(err, doc) {
+    if (err) {
+      handleError(err.message, "Failed to create new site.");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
 });
