@@ -33,7 +33,7 @@ exports.addFavorito = function(req, res) {
 		sites: req.body.sites
 	});
 
-	lugaresJson.save(function(err, lugares) {
+	favoritosJson.save(function(err, lugares) {
 		if(err) return res.send(500, err.message);
 		//quitar ahora
 	//console.log('GET api/Favoritos');
