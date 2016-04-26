@@ -77,18 +77,3 @@ app.use('/api', listaFavoritos);
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
 });
-
-
-
-app.post("/sites", function(req, res) {
-  var newSite = req.body;
-  newSite.createDate = new Date();
-
-  db.collection(CONTACTS_COLLECTION).insertOne(newSite, function(err, doc) {
-    if (err) {
-      handleError(err.message, "Failed to create new site.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
-});
