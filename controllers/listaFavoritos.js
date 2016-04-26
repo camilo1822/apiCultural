@@ -28,7 +28,7 @@ exports.addFavorito = function(req, res) {
 	console.log(req.body);
 
 	var favoritosJson = new Favoritos({
-		id:    req.body.id,
+		id_user:    req.body.id_user,
 		title: req.body.title,
 		sites: req.body.sites
 	});
