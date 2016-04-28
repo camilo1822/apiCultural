@@ -40,6 +40,18 @@ listaFavoritos.route('/Favoritos')
   .post(FavoritosCtrl.addFavorito);
 
 
+var model     = require('./models/comentarios')(app, mongoose);
+var ComentariosCtrl = require('./controllers/listaComentarios');
+// API routes
+var listaComentarios = express.Router();
+
+listaComentarios.route('/Comentarios')
+  .get(ComentariosCtrl.findAllComentarios)
+  .post(ComentariosCtrl.addComentario);
+
+
+
+
 
 
 var uristring='mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7';
@@ -73,6 +85,8 @@ var port = process.env.PORT || 5000;
 app.use('/api', listaLugares);
 
 app.use('/api', listaFavoritos);
+
+app.use('/api', listaComentarios);
 
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
