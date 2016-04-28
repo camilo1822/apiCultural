@@ -29,7 +29,9 @@ exports.addFavorito = function(req, res) {
 
 	var favoritosJson = new Favoritos({
 		id_user:    req.body.id_user,
-		id_lugar: req.body.id_lugar
+		id_lugar: req.body.id_lugar,
+		title: req.body.title,
+		image: req.body.image
 	});
 
 	favoritosJson.save(function(err, lugares) {
