@@ -29,14 +29,11 @@ exports.addFavorito = function(req, res) {
 
 	var favoritosJson = new Favoritos({
 		id_user:    req.body.id_user,
-		title: req.body.title,
-		sites: req.body.sites
+		id_lugar: req.body.id_lugar
 	});
 
 	favoritosJson.save(function(err, lugares) {
 		if(err) return res.send(500, err.message);
-		//quitar ahora
-	//console.log('GET api/Favoritos');
     res.status(200).jsonp(favoritosJson);
 	});
 };
