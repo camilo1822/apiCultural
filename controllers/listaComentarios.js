@@ -23,7 +23,7 @@ exports.addComentario = function(req, res) {
 	console.log('POST');
 	console.log(req.body);
 
-	var comentariosJson = new Favoritos({
+	var comentariosJson = new Comentarios({
 		id_lugar: req.body.id_lugar,
 		comentario: req.body.comentario
 	});
