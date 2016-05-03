@@ -25,6 +25,8 @@ exports.addComentario = function(req, res) {
 
 	var comentariosJson = new Comentarios({
 		id_lugar: req.body.id_lugar,
+		foto: req.body.foto,
+		nombre: req.body.nombre,
 		comentario: req.body.comentario
 	});
 
