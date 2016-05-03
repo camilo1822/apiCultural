@@ -37,7 +37,8 @@ var listaFavoritos = express.Router();
 
 listaFavoritos.route('/Favoritos')
   .get(FavoritosCtrl.findAllFavoritos)
-  .post(FavoritosCtrl.addFavorito);
+  .post(FavoritosCtrl.addFavorito)
+  .delete(FavoritosCtrl.deleteFavorito);
 
 
 var model     = require('./models/comentarios')(app, mongoose);

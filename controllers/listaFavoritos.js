@@ -19,6 +19,15 @@ exports.findById = function(req, res) {
 	});
 };
 
+exports.deleteFavorito = function(req, res) {  
+    Favoritos.findById(req.params.id, function(err, favoritos) {
+        Favoritos.remove(function(err) {
+            if(err) return res.status(500).send(err.message);
+      res.status(200).send();
+        })
+    });
+};
+
 exports.addFavorito = function(req, res) {
 	console.log('POST');
 	console.log(req.body);
