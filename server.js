@@ -38,6 +38,8 @@ var listaFavoritos = express.Router();
 listaFavoritos.route('/Favoritos')
   .get(FavoritosCtrl.findAllFavoritos)
   .post(FavoritosCtrl.addFavorito)
+  listaFavoritos.route('/Favoritos/:id')
+  .get(LugaresCtrl.findById)
   .delete(FavoritosCtrl.deleteFavorito);
 
 
