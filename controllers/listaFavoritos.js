@@ -20,7 +20,7 @@ exports.findById = function(req, res) {
 };
 
 exports.deleteFavorito = function(req, res) {  
-    Favoritos.findById(req.params.id_user, function(err, favoritos) {
+    Favoritos.findById(req.params.id, function(err, favoritos) {
         Favoritos.remove(function(err) {
             if(err) return res.status(500).send(err.message);
       res.status(200).send();

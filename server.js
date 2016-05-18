@@ -39,7 +39,7 @@ listaFavoritos.route('/Favoritos')
   .get(FavoritosCtrl.findAllFavoritos)
   .post(FavoritosCtrl.addFavorito)
   listaFavoritos.route('/Favoritos/:id')
-  .get(LugaresCtrl.findById)
+  .get(FavoritosCtrl.findById)
   .delete(FavoritosCtrl.deleteFavorito);
 
 
