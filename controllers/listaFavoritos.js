@@ -14,13 +14,13 @@ exports.findById = function(req, res) {
 	Favoritos.findById(req.params._id, function(err, favoritos) {
     if(err) return res.send(500, err.message);
 
-    console.log('find api/Favoritos/' + req.params.id);
+    console.log('find api/Favoritos/' + req.params._id);
 		res.status(200).jsonp(favoritos);
 	});
 };
 
 exports.deleteFavorito = function(req, res) {  
-    Favoritos.findById(req.params.id, function(err, favoritos) {
+    Favoritos.findById(req.params._id, function(err, favoritos) {
         Favoritos.remove(function(err) {
             if(err) return res.status(500).send(err.message);
       res.status(200).send();
