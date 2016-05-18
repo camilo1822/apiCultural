@@ -21,7 +21,7 @@ exports.findById = function(req, res) {
 
 exports.deleteFavorito = function(req, res) {  
     Favoritos.findById(req.params.id, function(err, favoritos) {
-    	console.log("estes es el puto id",req.params.id);
+    	console.log("estes es el id",req.params.id);
         Favoritos.remove(function(err) {
             if(err) return res.status(500).send(err.message);
       res.status(200).send();
