@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Favoritos  = mongoose.model('favoritos');
+var mongodb = require('mongodb');
 
 exports.findAllFavoritos = function(req, res) {
 	Favoritos.find(function(err, listaFavoritos) {
