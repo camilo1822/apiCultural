@@ -28,9 +28,11 @@ exports.deleteFavorito = function(req, res) {
       res.status(200).send();
         })
    });*/
-//Favoritos.findById('posts', function(err, favoritos) {
-   Favoritos.remove({_id: new mongodb.ObjectID('574c77346ae220030022fc4e')});
-//});
+
+//priemro onbtengo la cllecion y borro uno
+db.collection('posts', function(err, posts) {
+   posts.remove({_id: new mongodb.ObjectID('574c77346ae220030022fc4e')});
+});
 };
 
 exports.addFavorito = function(req, res) {
