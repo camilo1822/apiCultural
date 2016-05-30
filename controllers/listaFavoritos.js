@@ -28,16 +28,11 @@ exports.deleteFavorito = function(req, res) {
       res.status(200).send();
         })
    });*/
-Favoritos.find(function(err, listaFavoritos) {
-    if(err) res.send(500, err.message);
-    listaFavoritos.remove({_id: new mongodb.ObjectID('574c77346ae220030022fc4e')});
-    console.log('GET api/Favoritos')
-		res.status(200).jsonp(listaFavoritos);
-	});
+
 //priemro onbtengo la cllecion y borro uno
-/*db.collection('posts', function(err, posts) {
+Favoritos.collection('posts', function(err, posts) {
    posts.remove({_id: new mongodb.ObjectID('574c77346ae220030022fc4e')});
-});*/
+});
 };
 
 exports.addFavorito = function(req, res) {
