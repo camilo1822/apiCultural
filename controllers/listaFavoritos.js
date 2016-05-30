@@ -29,7 +29,7 @@ exports.deleteFavorito = function(req, res) {
         })
    });*/
 //Favoritos.findById('posts', function(err, favoritos) {
-   Favoritos.remove({_id: new mongodb.ObjectID('5706fab948fc7df9ea5fa90c')});
+   Favoritos.remove({_id: new mongodb.ObjectID('574c77346ae220030022fc4e')});
 //});
 };
 
