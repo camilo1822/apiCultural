@@ -28,8 +28,7 @@ exports.deleteFavorito = function(req, res) {
       res.status(200).send();
         })
    });
-
-
+};
 
 exports.addFavorito = function(req, res) {
 	console.log('POST');
