@@ -38,10 +38,17 @@ exports.addLugar = function(req, res) {
 		tipo: req.body.tipo
 	});
 
+
+	lugaresJson.save(function(err, lugares) {
+		if(err) return res.send(500, err.message);
+    res.status(200).jsonp(lugaresJson);
+	});
+
 	//lugaresJson.save(function(err, lugares) {
 		//if(err) return res.send(500, err.message);
 		//quitar ahora
+		/*asi estaba
 	console.log('GET api/Lugares');
-    res.status(200).jsonp(lugaresJson);
+    res.status(200).jsonp(lugaresJson);*/
 	//});
 };
