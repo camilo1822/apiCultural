@@ -27,6 +27,7 @@ listaLugares.route('/Lugares')
   .post(LugaresCtrl.addLugar);
 listaLugares.route('/Lugares/:id')
   .get(LugaresCtrl.findById);
+  .delete(LugaresCtrl.deleteLugar);
 
 var model     = require('./models/favoritos')(app, mongoose);
 var FavoritosCtrl = require('./controllers/listaFavoritos');
@@ -53,6 +54,10 @@ var listaComentarios = express.Router();
 listaComentarios.route('/Comentarios')
   .get(ComentariosCtrl.findAllComentarios)
   .post(ComentariosCtrl.addComentario);
+
+  listaComentarios.route('/Comentarios/:id')
+  .get(ComentariosCtrl.findById)
+  .delete(ComentariosCtrl.deleteComentario);
 
 
 

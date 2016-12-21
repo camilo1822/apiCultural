@@ -35,3 +35,12 @@ exports.addComentario = function(req, res) {
     res.status(200).jsonp(comentariosJson);
 	});
 };
+
+exports.deleteComentario = function(req, res) {  
+    Comentarios.findById(req.params.id, function(err, comentarios) {
+        Comentarios.remove(/*{_id: new mongodb.ObjectID(req.params.id)},*/function(err) {
+            if(err) return res.status(500).send(err.message);
+      res.status(200).send();
+        })
+   });
+};

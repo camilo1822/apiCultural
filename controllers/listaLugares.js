@@ -52,3 +52,12 @@ exports.addLugar = function(req, res) {
     res.status(200).jsonp(lugaresJson);*/
 	//});
 };
+
+exports.deleteLugar = function(req, res) {  
+    Lugares.findById(req.params.id, function(err, lugares) {
+        Lugares.remove(/*{_id: new mongodb.ObjectID(req.params.id)},*/function(err) {
+            if(err) return res.status(500).send(err.message);
+      res.status(200).send();
+        })
+   });
+};
