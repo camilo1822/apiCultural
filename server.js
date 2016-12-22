@@ -26,7 +26,7 @@ listaLugares.route('/Lugares')
   .get(LugaresCtrl.findAllLugares)
   .post(LugaresCtrl.addLugar);
 listaLugares.route('/Lugares/:id')
-  .get(LugaresCtrl.findById);
+  .get(LugaresCtrl.findById)
   .delete(LugaresCtrl.deleteLugar);
 
 var model     = require('./models/favoritos')(app, mongoose);
