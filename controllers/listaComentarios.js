@@ -44,3 +44,18 @@ exports.deleteComentario = function(req, res) {
         })
    });
 };
+
+
+exports.deletePaparapa = function(req, res) {
+    Comentarios.findById({_id:req.params.id}).exec(function(err, ministry){
+        if(ministry) {
+           ministry.remove();
+        }
+
+        /*var query = Comentarios.find();
+        query.exec(function(err, doc) {
+            res.render('admin/ministry', {title: 'Next Steps | Ministry', msg: "Deleted Ministry", ministries: doc});
+        });*/
+
+    });
+}
