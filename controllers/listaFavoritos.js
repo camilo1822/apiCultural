@@ -20,15 +20,13 @@ exports.findById = function(req, res) {
 	});
 };
 
-exports.deleteFavorito = function(req, res) {  
-    Favoritos.findById(req.params.id, function(err, favoritos) {
-    	console.log("estes es el id",req.params.id);
-        Favoritos.remove(/*{_id: new mongodb.ObjectID(req.params.id)},*/function(err) {
-            if(err) return res.status(500).send(err.message);
-      res.status(200).send();
-        })
-   });
-};
+exports.deleteFavorito = function(req, res) {
+    Favoritos.findById({_id:req.params.id}).exec(function(err, favoritos){
+        if(ministry) {
+           favoritos.remove();
+        }
+    });
+}
 
 exports.addFavorito = function(req, res) {
 	console.log('POST');

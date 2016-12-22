@@ -36,26 +36,20 @@ exports.addComentario = function(req, res) {
 	});
 };
 
-exports.deleteComentario = function(req, res) {  
+/*exports.deleteComentario = function(req, res) {  
     Comentarios.findById(req.params.id, function(err, comentarios) {
-        Comentarios.remove(/*{_id: new mongodb.ObjectID(req.params.id)},*/function(err) {
+        Comentarios.remove(/*{_id: new mongodb.ObjectID(req.params.id)},*//*function(err) {
             if(err) return res.status(500).send(err.message);
       res.status(200).send();
         })
    });
-};
+};*/
 
 
-exports.deletePaparapa = function(req, res) {
+exports.deleteComentario = function(req, res) {
     Comentarios.findById({_id:req.params.id}).exec(function(err, ministry){
         if(ministry) {
            ministry.remove();
         }
-
-        /*var query = Comentarios.find();
-        query.exec(function(err, doc) {
-            res.render('admin/ministry', {title: 'Next Steps | Ministry', msg: "Deleted Ministry", ministries: doc});
-        });*/
-
     });
 }

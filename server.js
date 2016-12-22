@@ -51,14 +51,13 @@ var ComentariosCtrl = require('./controllers/listaComentarios');
 // API routes
 var listaComentarios = express.Router();
 
-/*listaComentarios.route('/Comentarios')
+listaComentarios.route('/Comentarios')
   .get(ComentariosCtrl.findAllComentarios)
-  .post(ComentariosCtrl.addComentario);*/
+  .post(ComentariosCtrl.addComentario);
 
   listaComentarios.route('/Comentarios/:id')
   .get(ComentariosCtrl.findById)
-  //.delete(ComentariosCtrl.deleteComentario);
-  .delete(ComentariosCtrl.deletePaparapa);
+  .delete(ComentariosCtrl.deleteComentario);
 
 
 

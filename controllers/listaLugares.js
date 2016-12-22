@@ -53,11 +53,10 @@ exports.addLugar = function(req, res) {
 	//});
 };
 
-exports.deleteLugar = function(req, res) {  
-    Lugares.findById(req.params.id, function(err, lugares) {
-        Lugares.remove(/*{_id: new mongodb.ObjectID(req.params.id)},*/function(err) {
-            if(err) return res.status(500).send(err.message);
-      res.status(200).send();
-        })
-   });
-};
+exports.deleteLugar = function(req, res) {
+    Lugares.findById({_id:req.params.id}).exec(function(err, lugares){
+        if(ministry) {
+           lugares.remove();
+        }
+    });
+}
