@@ -47,9 +47,9 @@ exports.addComentario = function(req, res) {
 
 
 exports.deleteComentario = function(req, res) {
-    Comentarios.findById({_id:req.params.id}).exec(function(err, ministry){
-        if(ministry) {
-           ministry.remove();
+    Comentarios.findById({_id:req.params.id}).exec(function(err, comentarios){
+        if(comentarios) {
+           comentarios.remove();
         }
     });
 }

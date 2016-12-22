@@ -55,7 +55,7 @@ exports.addLugar = function(req, res) {
 
 exports.deleteLugar = function(req, res) {
     Lugares.findById({_id:req.params.id}).exec(function(err, lugares){
-        if(ministry) {
+        if(lugares) {
            lugares.remove();
         }
     });

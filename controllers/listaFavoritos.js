@@ -22,7 +22,7 @@ exports.findById = function(req, res) {
 
 exports.deleteFavorito = function(req, res) {
     Favoritos.findById({_id:req.params.id}).exec(function(err, favoritos){
-        if(ministry) {
+        if(favoritos) {
            favoritos.remove();
         }
     });
