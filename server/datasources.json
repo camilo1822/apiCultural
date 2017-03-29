@@ -1,0 +1,7 @@
+{
+  "lugares": {
+    "url": "mongodb://lugaresCult:apiCultural@ds011379.mlab.com:11379/heroku_2v8qghk7",
+    "name": "lugares",
+    "connector": "mongodb"
+  }
+}

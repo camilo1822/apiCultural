@@ -1,0 +1,30 @@
+{
+  "name": "comentarios",
+  "plural": "comentarios",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_lugar": {
+      "type": "string",
+      "required": true
+    },
+    "foto": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "comentario": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
