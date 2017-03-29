@@ -28,7 +28,7 @@
     "url": ""
   },
   "engines": {
-       "node": "0.10.x"
+       "node": ">=4 <7"
    },
   "license": "UNLICENSED",
   "description": "cultural-api"
