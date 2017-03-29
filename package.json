@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
+    "preinstall":"npm install -g strongloop",
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check"
