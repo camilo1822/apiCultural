@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "preinstall":"npm install -g strongloop",
+    "preinstall": "npm install -g strongloop && npm install -g apiconnect",
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check"
@@ -16,6 +16,7 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
     "loopback-connector-mongodb": "^3.0.1",
+    "loopback-sdk-angular-cli": "^3.0.0",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^1.0.1"
   },
@@ -28,9 +29,6 @@
     "type": "",
     "url": ""
   },
-  "engines": {
-       "node": "6.10.1"
-   },
   "license": "UNLICENSED",
   "description": "cultural-api"
 }

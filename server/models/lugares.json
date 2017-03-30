@@ -29,13 +29,17 @@
     },
     "qr": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "direccion": {
       "type": "string",
       "required": true
     },
     "tipo": {
+      "type": "string",
+      "required": true
+    },
+    "beaconId": {
       "type": "string",
       "required": true
     }
