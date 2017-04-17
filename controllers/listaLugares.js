@@ -53,10 +53,19 @@ exports.addLugar = function(req, res) {
 	//});
 };
 
-exports.deleteLugar = function(req, res) {
+/*exports.deleteLugar = function(req, res) {
     Lugares.findById({_id:req.params.id}).exec(function(err, lugares){
         if(lugares) {
            lugares.remove();
         }
     });
-}
+}*/
+
+exports.deleteLugar = function(req, res) {  
+    Lugares.findById({_id:req.params.id}).exec(function(err, lugares){
+        lugares.remove(function(err) {
+            if(err) return res.status(500).send(err.message);
+      res.status(200).send();
+        })
+    });
+};
