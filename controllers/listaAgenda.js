@@ -6,7 +6,7 @@ exports.findAllAgenda = function(req, res) {
     if(err) res.send(500, err.message);
 
     console.log('GET api/Agenda')
-		res.status(200).jsonp(listaComentarios);
+		res.status(200).jsonp(listaAgenda);
 	});
 };
 
