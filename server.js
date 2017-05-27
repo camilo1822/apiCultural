@@ -59,6 +59,19 @@ listaComentarios.route('/Comentarios')
   .get(ComentariosCtrl.findById)
   .delete(ComentariosCtrl.deleteComentario);
 
+  var model     = require('./models/agenda')(app, mongoose);
+var AgendaCtrl = require('./controllers/listaAgenda');
+// API routes
+var listaAgenda = express.Router();
+
+listaAgenda.route('/Agenda')
+  .get(AgendaCtrl.findAllAgenda)
+  .post(AgendaCtrl.addAgenda);
+
+  listaComentarios.route('/Agenda/:id')
+  .get(AgendaCtrl.findById)
+  .delete(AgendaCtrl.deleteAgenda);
+
 
 
 
@@ -97,6 +110,8 @@ app.use('/api', listaLugares);
 app.use('/api', listaFavoritos);
 
 app.use('/api', listaComentarios);
+
+app.use('/api', listaAgenda);
 
 app.listen(port, function() {
   console.log('Node Server Running in the port:'+port);
